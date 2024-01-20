@@ -1,27 +1,25 @@
 #include<iostream>
-#include<math.h>
 using namespace std;
-int reverse(int x) {
-        int ans=0,i,a,mul=0,length,finall,count=0;
-        length=x;
-        while(length!=0){
-            length=length/10;
+int lenString(char str[]){
+    int count=0;
+    for(int i=0;str[i]!='\0';i++){
             count++;
-        }
-        cout<<count<<endl;
-        finall=pow(10,(count-1));
-        cout<<finall<<endl;
-        while(x!=0){
-            a=x%10;
-            a=a*finall;
-            ans+=a;
-            finall=finall/10;
-            x=x/10;
-        }
-        return ans;
     }
-
-    int main(){
-        int f=321;
-        cout<<reverse(f);
+    return count;
+}
+void reverse(char ch[],int size){
+    int s=size-1;
+    for(int i=0;i<=s/2;i++){
+        swap(ch[i],ch[s-i]);
     }
+    for(int i=0;i<size;i++){
+        cout<<ch[i];
+    }
+}
+int main(){
+    char str[10];
+    cout<<"Enter your String"<<endl;
+    cin>>str;
+    int length= lenString(str);
+    reverse(str, length);
+}
